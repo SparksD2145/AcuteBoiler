@@ -1,0 +1,44 @@
+{
+  "name": "AcuteBoiler",
+  "main": "AcuteBoiler.js",
+  "version": "0.0.0",
+  "authors": [
+    "Thomas Ibarra <SparksD2145.dev@gmail.com>"
+  ],
+  "description": "A specialized boilerplate for quickly developing angular websites.",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "boilerplate",
+    "angular",
+    "less",
+    "jade",
+    "express",
+    "acute",
+    "boiler"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.3",
+    "angular-resource": "~1.4.3",
+    "angular-aria": "~1.4.3",
+    "angular-material": "~0.10.0",
+    "angular-route": "~1.4.3",
+    "less-easing": "*",
+    "angular-sanitize": "~1.4.3",
+    "material-design-icons": "~2.0.0",
+    "moment": "~2.10.3",
+    "ngstorage": "~0.3.7",
+    "underscore.string": "~3.1.1",
+    "zepto": "~1.1.6",
+    "underscore": "~1.8.3"
+  }
+}

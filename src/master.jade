@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title AcuteBoiler
+        link(rel="manifest", href="manifest.json")
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+        //-meta(name="theme-color", content="#337ab7")
+        meta(name="mobile-web-app-capable", content="yes")
+        meta(name="apple-mobile-web-app-capable", content="yes")
+        meta(name="description", content="")
+        base(href="/")
+
+        if devMode
+            include includes/environments/dev
+        else
+            include includes/environments/prod
+
+        include includes/global/styles
+        include includes/global/scripts
+
+        link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+
+    body(ng-app="Runner", layout="row")
+        md-sidenav(md-component-id="left", md-is-locked-open="$mdMedia('gt-sm')")
+        div(layout="column", layout-fill)
+            md-toolbar
+                div.md-toolbar-tools
+                    md-button.sidebar-toggle
+                        md-icon(aria-label="Toggle Sidebar Navigation") menu
+                    span Test
+                    span(flex)
