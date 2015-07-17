@@ -1,14 +1,14 @@
 /**
- * @file Master initialization file for Runner. Begins initialization of program.
+ * @file Master initialization file for Application. Begins initialization of program.
  * @author Thomas Ibarra <sparksd2145.dev@gmail.com>
  */
 
 /**
- * Global namespace for Runner application.
+ * Global namespace for Application.
  * @namespace
  * @global
  */
-var Runner = {};
+var Application = {};
 
 /** Initialization of application */
 (function initialize(){
@@ -42,7 +42,7 @@ var Runner = {};
         Services: {},
         /**
          * Storage for Dependencies
-         * @namespace Runner.Dependencies
+         * @namespace Application.Dependencies
          */
         Dependencies: []
     };
@@ -54,10 +54,10 @@ var Runner = {};
     );
 
     // Merge all prior constructs to form finalized object.
-    Runner = _.extend(
-        Runner,
+    Application = _.extend(
+        Application,
         namespaces,
-        angular.module('Runner', [
+        angular.module('Application', [
             'ngRoute', 'ngSanitize', 'ngAnimate', 'ngResource', 'ngAria', 'ngMaterial', // Core angular libraries.
             'ngStorage', // Third-party angular libraries.
             'underscore', 'momentJs' // Third-party libraries.
@@ -65,7 +65,7 @@ var Runner = {};
     );
 
     /**
-     * Utilize passed functions as arguments for Runner.config() method.
+     * Utilize passed functions as arguments for Application.config() method.
      * @type {Array}
      */
 })();
@@ -96,7 +96,7 @@ function Dependency(name, ref, obj){
 /**
  * Application-wide configuration for routing based functionality.
  */
-Runner.config([
+Application.config([
     '$locationProvider', '$routeProvider',
     function($locationProvider, $router) {
         $router.when('/', {
