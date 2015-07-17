@@ -1,7 +1,7 @@
 {
   "name": "AcuteBoiler",
   "main": "AcuteBoiler.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Thomas Ibarra <SparksD2145.dev@gmail.com>"
   ],
@@ -34,11 +34,10 @@
     "angular-route": "~1.4.3",
     "less-easing": "*",
     "angular-sanitize": "~1.4.3",
-    "material-design-icons": "~2.0.0",
     "moment": "~2.10.3",
     "ngstorage": "~0.3.7",
     "underscore.string": "~3.1.1",
-    "zepto": "~1.1.6",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "zepto": "~1.1.6"
   }
 }

@@ -1,9 +1,9 @@
 {
   "name": "acute-boiler",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node AcuteBoiler.js"
+    "start": "node AcuteBoiler"
   },
   "dependencies": {
     "body-parser": "~1.12.4",
@@ -14,7 +14,13 @@
     "less-middleware": "1.0.x",
     "less": "^2.5.1",
     "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1"
+    "serve-favicon": "~2.2.1",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "underscore": "^1.8.3"
   },
   "description": "A specialized template for quickly developing angular-powered websites on non-express servers.",
   "main": "AcuteBoiler.js",
