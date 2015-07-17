@@ -21,12 +21,13 @@ html
         //- Material Design Icons external library
         link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
 
-    body(ng-app="Runner", layout="row")
+    body(ng-app="AcuteBoiler", layout="row")
         md-sidenav(md-component-id="left", md-is-locked-open="$mdMedia('gt-sm')")
         div(layout="column", layout-fill)
             md-toolbar
                 div.md-toolbar-tools
                     md-button.sidebar-toggle
                         md-icon(aria-label="Toggle Sidebar Navigation") menu
-                    span Test
-                    span(flex)
+                    span AcuteBoiler
+
+            md-content(layout-padding, md-scroll-y, ng-view).md-default-theme

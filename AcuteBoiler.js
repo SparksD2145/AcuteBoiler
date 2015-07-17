@@ -1,14 +1,5 @@
 #!/usr/bin/env node
 
-// Load application based on environment, assume production unless development
-/*if(process.env.node_env !== 'development'){
- var app = require('./build/app');
- run(app);
- } else {
- var app = require('./src/app');
- run(app);
- }*/
-
 /**
  * @file Application master file, contains primary aspects of launching AcuteBoiler Webservice. Based on Express/Node boilerplate.
  * @author Thomas Ibarra <sparksd2145.dev@gmail.com>
@@ -19,9 +10,9 @@
  * @requires module:cookie-parser
  * @requires module:less-middleware
  * @requires module:Configuration
- * @exports Runner
+ * @exports AcuteBoiler
  */
-
+var _ = require('underscore');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var path = require('path');
@@ -39,16 +30,35 @@ app.set('config', config);
 var debug = require('debug')('AcuteBoiler:server');
 
 // view engine setup
-app.set('views', path.join(__dirname, ''));
+app.set('views', './src');
 app.set('view engine', 'jade');
 
-// Use Master.jade as site index.
+// Load Index as root directory.
 app.get('/', function(req, res){
     res.render(
         path.join(__dirname, '/src/index'),
         { devMode: process.env.NODE_ENV === 'development' }
     );
 });
+
+// Create routes for jade partials.
+(function createPartialRoutes() {
+    var fs = require('fs');
+
+    var files = _.filter(
+        fs.readdirSync(path.join(__dirname, 'src/partials')),
+        function(file){
+            return /\w+\.jade/.test(file);
+        }
+    );
+
+    _.each(files, function(file, index){
+        file = file.replace('.jade', '');
+        app.get('/partials/' + file + '.html', function(req, res){
+            res.render(path.join(__dirname, 'src/partials/' + file));
+        });
+    });
+})();
 
 // Use less engine
 app.use(less(__dirname + '/src', {
@@ -64,8 +74,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-// Mount directory "/public" as public facing directory "/"
-app.use(express.static(path.join(__dirname, 'src'), {maxAge: '3d'}));
+// Mount directory "/src/static" as public facing directory "/static"
+app.use('/static', express.static(path.join(__dirname, 'src/static'), {maxAge: '3d'}));
 
 // Mount directory "/bower_components" as public facing directory "/libraries"
 app.use('/libraries', express.static(path.join(__dirname, '/bower_components'), {maxAge: '3d'}));

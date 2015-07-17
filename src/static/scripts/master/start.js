@@ -1,48 +1,48 @@
 /**
- * @file Master initialization file for Runner. Begins initialization of program.
+ * @file Master initialization file for AcuteBoiler. Begins initialization of program.
  * @author Thomas Ibarra <sparksd2145.dev@gmail.com>
  */
 
 /**
- * Global namespace for Runner application.
+ * Global namespace for AcuteBoiler.
  * @namespace
  * @global
  */
-var Runner = {};
+var AcuteBoiler = {};
 
-/** Initialization of application */
+/** Initialization of AcuteBoiler */
 (function initialize(){
 
     // Enumerate internal namespaces.
     var namespaces = {
         /**
-         * Raw core, non-angular components of the application.
+         * Raw core, non-angular components of the AcuteBoiler.
          * @namespace
          */
         Components: {},
         /**
-         * Core AngularJS Controllers of the application.
+         * Core AngularJS Controllers of the AcuteBoiler.
          * @namespace
          */
         Controllers: {},
         /**
-         * Core AngularJS Directives of the application.
+         * Core AngularJS Directives of the AcuteBoiler.
          * @namespace
          */
         Directives: {},
         /**
-         * Pages of the application.
+         * Pages of the AcuteBoiler.
          * @namespace
          */
         States: {},
         /**
-         * Core AngularJS Services of the application.
+         * Core AngularJS Services of the AcuteBoiler.
          * @namespace
          */
         Services: {},
         /**
          * Storage for Dependencies
-         * @namespace Runner.Dependencies
+         * @namespace AcuteBoiler.Dependencies
          */
         Dependencies: []
     };
@@ -54,10 +54,10 @@ var Runner = {};
     );
 
     // Merge all prior constructs to form finalized object.
-    Runner = _.extend(
-        Runner,
+    AcuteBoiler = _.extend(
+        AcuteBoiler,
         namespaces,
-        angular.module('Runner', [
+        angular.module('AcuteBoiler', [
             'ngRoute', 'ngSanitize', 'ngAnimate', 'ngResource', 'ngAria', 'ngMaterial', // Core angular libraries.
             'ngStorage', // Third-party angular libraries.
             'underscore', 'momentJs' // Third-party libraries.
@@ -65,7 +65,7 @@ var Runner = {};
     );
 
     /**
-     * Utilize passed functions as arguments for Runner.config() method.
+     * Utilize passed functions as arguments for AcuteBoiler.config() method.
      * @type {Array}
      */
 })();
@@ -96,14 +96,15 @@ function Dependency(name, ref, obj){
 /**
  * Application-wide configuration for routing based functionality.
  */
-Runner.config([
+AcuteBoiler.config([
     '$locationProvider', '$routeProvider',
     function($locationProvider, $router) {
+
         $router.when('/', {
-            templateUrl: '/home.jade'
+            templateUrl: '/partials/home.html'
         });
 
-        $router.otherwise('/');
+        //$router.otherwise('/');
 
         // Use Html5 mode, but use crunch-bang (#!) as routing for non-html5 compliant browsers.
         $locationProvider
